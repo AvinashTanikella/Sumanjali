@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumanjali - Dashboard</title>
+    <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #9ae7e7; /* Set the background color to blue */
+            color: #000000; /* Set the text color to black for better visibility */
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        .button-container a {
+            display: block;
+            margin: 10px 0;
+            padding: 10px 20px;
+            background-color: #41bde3;
+            color: black; /* Changed text color to black for better visibility */
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .button-container a:hover {
+            background-color: hsl(202, 79%, 42%);
+        }
+        .button-container2 {
+            margin-top: 20px;
+        }
+        .button-container2 a {
+            display: block;
+            margin: 10px 0;
+            padding: 10px 20px;
+            background-color: #67e341;
+            color: black; /* Changed text color to black for better visibility */
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .button-container2 a:hover {
+            background-color: hsl(143, 79%, 40%);
+        }
+        .dropdown-container {
+            margin-top: 20px;
+        }
+        .highlight {
+            background-color: #416ce3; /* Highlight background color */
+            color: rgb(255, 255, 255); /* Highlight text color */
+            font-weight: bold; /* Make the text bold */
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .gallery-container {
+            margin-top: 40px;
+            text-align: center;
+        }
+        .gallery-item {
+            display: inline-block;
+            width: 200px; /* Adjust the width of each image */
+            margin: 10px;
+        }
+        .gallery-item img {
+            width: 100%; /* Make the images fill their container */
+            border-radius: 10px;
+        }
+        .gallery-title {
+            margin-top: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+        }
+        .founder-info {
+            text-align: center;
+            margin-top: 10px;
+        }
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .blink-text {
+            color: red;
+            font-weight: bold;
+            animation: blink 1s infinite;
+        }
+    </style>
+    <script>
+        function updateLinks() {
+            var month = document.getElementById('monthSelector').value;
+            var defaultLink = './redirect/ndf.html';
+
+            // Links to be updated
+            var links = {
+                SalesLink1: defaultLink,
+                SalesLink2: defaultLink,
+                WatercanLink: defaultLink,
+                SnacksLink: defaultLink,
+                ExpenseLink: defaultLink,
+                MonthStmtLink: defaultLink,
+                AttendanceLink: defaultLink,
+                SalaryslipLink: defaultLink,
+                PTManLink: defaultLink,
+                MnthSettLink: defaultLink,
+            };
+
+            // Update links for each month
+            if (month === 'January') {
+                // Update February links
+                //links.SalesLink1 = '';
+                //links.SalesLink2 = '';
+                //links.WatercanLink = '';
+                //links.SnacksLink = '';
+                //links.ExpenseLink = '';
+                //links.MonthStmtLink = '';
+                //links.AttendanceLink = '';
+                //links.SalaryslipLink = '';
+                //links.PTManLink.href = '';
+                //links.MnthSettLink = '';
+            } else if (month === 'February') {
+                // Update February links
+                //links.SalesLink1 = '';
+                //links.SalesLink2 = '';
+                //links.WatercanLink = '';
+                //links.SnacksLink = '';
+                //links.ExpenseLink = '';
+                //links.MonthStmtLink = '';
+                //links.AttendanceLink = '';
+                //links.SalaryslipLink = '';
+                //links.PTManLink.href = '';
+                //links.MnthSettLink = '';
+            } else if (month === 'March') {
+                // Update March links
+                //links.SalesLink1 = '';
+                //links.SalesLink2 = '';
+                //links.WatercanLink = '';
+                //links.SnacksLink = '';
+                //links.ExpenseLink = '';
+                //links.MonthStmtLink = '';
+                //links.AttendanceLink = '';
+                //links.SalaryslipLink = '';
+                //links.PTManLink.href = '';
+                //links.MnthSettLink = '';
+            } else if (month === 'April') {
+                // Update April links
+                //links.SalesLink1 = '';
+                //links.SalesLink2 = '';
+                //links.WatercanLink = '';
+                //links.SnacksLink = '';
+                //links.ExpenseLink = '';
+                //links.MonthStmtLink = '';
+                //links.AttendanceLink = '';
+                //links.SalaryslipLink = '';
+                //links.PTManLink.href = '';
+                //links.MnthSettLink = '';
+            } else if (month === 'May') {
+                // Update May links
+                //links.SalesLink1 = '';
+                //links.SalesLink2 = '';
+                //links.WatercanLink = '';
+                //links.SnacksLink = '';
+                //links.ExpenseLink = '';
+                //links.MonthStmtLink = '';
+                //links.AttendanceLink = '';
+                //links.SalaryslipLink = '';
+                //links.PTManLink.href = '';
+                //links.MnthSettLink = '';
+            } else if (month === 'June') {
+                // Update June links
+                //links.SalesLink1 = '';
+                //links.SalesLink2 = '';
+                //links.WatercanLink = '';
+                //links.SnacksLink = '';
+                //links.ExpenseLink = '';
+                //links.MonthStmtLink = '';
+                //links.AttendanceLink = '';
+                //links.SalaryslipLink = '';
+                //links.PTManLink.href = '';
+                //links.MnthSettLink = '';
+            } else if (month === 'July') {
+                // Update July links
+                links.SalesLink1 = 'https://docs.google.com/spreadsheets/d/1F9rYDjx6s46TUUJLBybzSyIavC1AeDVDfE09xx9ZjR4/edit?gid=1348679317#gid=1348679317';
+                links.SalesLink2 = 'https://docs.google.com/spreadsheets/d/1VVahJCh6xbqCIIvECaWjOrXmVdiDIBWPxJZ8xs3GeJM/edit?gid=2144024762#gid=2144024762';
+                links.WatercanLink = 'https://docs.google.com/spreadsheets/d/17oqnJiGWQdBDG5zeqQS48v1_WiW_YLfGEvv4dEq23YM/edit?gid=1840695806#gid=1840695806';
+                links.SnacksLink = 'https://docs.google.com/spreadsheets/d/1BdNR5PFnXr5GhG9xhj0tw5hVJErrT_feYLFzdW-Mu58/edit?usp=drive_link';
+                links.ExpenseLink = 'https://docs.google.com/spreadsheets/d/1zanmj4_dbP8xQdp1FaUcgk_JTcxUk0USQ7BOEG48SQ8/edit?usp=drive_link';
+                links.MonthStmtLink = 'https://docs.google.com/spreadsheets/d/13MyNpZSe1vGJivnj3-Pg_iJ6ghl7h_FRc9UZVTlCRmM/edit?usp=drive_link';
+                links.AttendanceLink = 'https://docs.google.com/spreadsheets/d/1Ut-563QQoVfySJf1DFxXSFZdSt_gx6LlORnXcP8jVpA/edit?gid=2061645691#gid=2061645691';
+                links.SalaryslipLink = 'https://docs.google.com/spreadsheets/d/16Wqr6U2p1l06rP0flFjbbqb6YZ08DpuSOmrQca0mgGk/edit?usp=drive_link';
+                links.PTManLink = '';
+                links.MnthSettLink = 'https://docs.google.com/spreadsheets/d/1p8cfJolo6VoAqpULpwgE-WgyNvt5YNfcI8aVmuMO3vE/edit?usp=drive_link';
+            } else if (month === 'August') {
+                // Update August links
+            } else if (month === 'September') {
+                // Update September links
+            } else if (month === 'October') {
+                // Update October links
+                //links.SalesLink1 = '';
+                //links.SalesLink2 = '';
+                //links.WatercanLink = '';
+                //links.SnacksLink = '';
+                //links.ExpenseLink = '';
+                //links.MonthStmtLink = '';
+                //links.AttendanceLink = '';
+                //links.SalaryslipLink = '';
+                //links.PTManLink.href = '';
+                //links.MnthSettLink = '';
+            } else if (month === 'November') {
+                // Update November links if available
+                //links.SalesLink1 = '';
+                //links.SalesLink2 = '';
+                //links.WatercanLink = '';
+                //links.SnacksLink = '';
+                //links.ExpenseLink = '';
+                //links.MonthStmtLink = '';
+                //links.AttendanceLink = '';
+                //links.SalaryslipLink = '';
+                //links.PTManLink.href = '';
+                //links.MnthSettLink = '';
+            } else if (month === 'December') {
+                // Update December links if available
+                //links.SalesLink1 = '';
+                //links.SalesLink2 = '';
+                //links.WatercanLink = '';
+                //links.SnacksLink = '';
+                //links.ExpenseLink = '';
+                //links.MonthStmtLink = '';
+                //links.AttendanceLink = '';
+                //links.SalaryslipLink = '';
+                //links.PTManLink.href = '';
+                //links.MnthSettLink = '';
+            }
+
+            // Apply updated or default links
+            for (var id in links) {
+                document.getElementById(id).href = links[id];
+            }
+        }
+
+        window.onload = function() {
+            // Set fixed links
+            document.getElementById('PackPriceLink').href = './redirect/offlinepacks.html';
+            document.getElementById('ScheduleLink').href = './redirect/ndf.html';
+            document.getElementById('HolidayLink').href = './redirect/ndf.html';
+            document.getElementById('MeetingLink').href = './redirect/ndf.html';
+            document.getElementById('EmpInfo').href = 'https://docs.google.com/spreadsheets/d/1wSPEMRkD05goTOqaZeRyDeU42mXuXQ_i/edit?usp=drive_link&ouid=115886972838769464159&rtpof=true&sd=true';
+            document.getElementById('ShiftLink').href = 'https://docs.google.com/spreadsheets/d/1Ay5_10Z7yo7Bvtn71XefcrU98-hg3i0M/edit?usp=drive_link&ouid=115886972838769464159&rtpof=true&sd=true';
+            document.getElementById('ComplaintLink').href = 'https://forms.gle/si6LwdykVfS4mgG66';
+            document.getElementById('IssueStatusLink').href = 'https://docs.google.com/spreadsheets/d/15zKuPvEivas9GSGtBdxSFRDtcC7twGV1/edit?usp=drive_link&ouid=115886972838769464159&rtpof=true&sd=true';
+            document.getElementById('LeadsLink').href = 'https://docs.google.com/spreadsheets/d/11IpihyTbjnoj07KcxKscQAPaPisZ36E6/edit?usp=drive_link&ouid=115886972838769464159&rtpof=true&sd=true';
+            document.getElementById('MediaUploadLink').href = 'https://drive.google.com/drive/folders/1P59DvvDc4COdlhX4vGMXNoL5SCJb-ivI?usp=drive_link';
+            document.getElementById('SurveyLink').href = './redirect/ndf.html';
+            document.getElementById('PrimeGoogleDriveLink').href = 'https://drive.google.com/drive/folders/1mW9raD4s_gpXQ8RleVntIcaay0kh_x5j?usp=drive_link';
+            
+            setCurrentMonth();
+        }
+        // Function to set the current month in the dropdown
+        function setCurrentMonth() {
+            var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            var currentMonthIndex = new Date().getMonth();
+            document.getElementById('monthSelector').value = monthNames[currentMonthIndex];
+            updateLinks(); // Call updateLinks to set the default links for the current month
+        }
+    </script>
+</head>
+<body>
+    <img src="./images/Sumanjali_logo1.png" alt="Sumanjali Logo" style="width: 180px; height: 150px; display: block; margin: 0 auto;" />
+    <h1 style="text-align: center;">Dashboard</h1>
+    <p style="text-align: center;" class="blink-text">INTERNAL & CONFIDENTIAL</p>
+    <p style="text-align: center;"> <span class="highlight">Year 2025</span> </p>
+    <p style="text-align: center;">Select the month to access the respective files:</p>
+    <div class="dropdown-container" style="text-align: center;">
+        <select id="monthSelector" onchange="updateLinks()">
+            <option value="January">January</option>
+            <option value="February">February</option>
+            <option value="March">March</option>
+            <option value="April">April</option>
+            <option value="May">May</option>
+            <option value="June">June</option>
+            <option value="July">July</option>
+            <option value="August">August</option>
+            <option value="September">September</option>
+            <option value="October">October</option>
+            <option value="November">November</option>
+            <option value="December">December</option>
+            <!-- Add more options for other months as needed -->
+        </select>
+    </div>
+    <br />
+    <hr />    
+    <h4>MAINTENANCE </h4>
+    <div class="button-container">
+        <a id="ExpenseLink" target="_blank">Expense List</a>
+        <a id="MonthStmtLink" target="_blank">Monthly Statement</a>
+    </div>
+    <hr />
+    <h4>COMPLAINT BOX </h4>
+    <div class="button-container">
+        <a id="ComplaintLink" target="_blank">Register New Complaint</a>
+        <a id="IssueStatusLink" target="_blank">Status of Existing Issues</a>
+    </div>
+    <hr />
+    <h4>MAJOR DEVELOPMENT ACTIVITIES </h4>
+    <div class="button-container">
+        <a id="LeadsLink" target="_blank">Leads</a>
+        <a id="MediaUploadLink" target="_blank">Upload Media</a>
+    </div>
+    <hr />
+    <h4>NOTICE BOARD </h4>
+    <div class="button-container">
+        <a id="SurveyLink" target="_blank">Survey - All</a>
+    </div>
+    <hr />
+    <h4>SUMANJALI REPOSITORY </h4>
+    <div class="button-container2">
+        <a id="MnthSettLink" target="_blank">Monthly Settlement</a>
+        <a id="PrimeGoogleDriveLink" target="_blank">Prime - Google Drive</a>
+    </div>
+    <hr />
+
+    <!-- Gallery Section -->
+    <div class="gallery-container">
+        <h2 class="gallery-title">Few Development Activities</h2>
+        <div class="gallery-items">
+            <div class="gallery-item">
+                <img src="./images/avi.jpg" alt="Founder 1">
+                <div class="founder-info">
+                    <h3>Solar Fencing</h3>
+                    <p>Partner</p>
+                    <p>Strategic, Tech, Digital, Finance, Marketing & Sales</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="./images/Saklesh.jpeg" alt="Founder 2">
+                <div class="founder-info">
+                    <h3>Manjeera Water</h3>
+                    <p>Partner</p>
+                    <p>Accounts, Innovations & Customer Experience</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="./images/Siraj.jpeg" alt="Founder 3">
+                <div class="founder-info">
+                    <h3>CCTV Coverage</h3>
+                    <p>Partner</p>
+                    <p>Managing, Legals, Training & Human Resouce</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="./images/Yash.jpeg" alt="Founder 4">
+                <div class="founder-info">
+                    <h3>Hangers for Clothes</h3>
+                    <p>Partner</p>
+                    <p>Working, Training, Operations & Infrastructure</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+</html>
