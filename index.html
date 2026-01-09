@@ -5,6 +5,7 @@
 <title>Gruhashilpi’s Sumanjali</title>
 
 <style>
+/* BASE */
 body {
   margin: 0;
   font-family: "Segoe UI", sans-serif;
@@ -14,11 +15,7 @@ body {
 
 /* HEADER */
 header {
-  background: linear-gradient(
-    135deg,
-    #9B2C6B,
-    #F4B266
-  );
+  background: linear-gradient(135deg, #9B2C6B, #F4B266);
   color: white;
   padding: 22px 20px;
 }
@@ -33,7 +30,6 @@ header {
 
 .logo {
   height: 65px;
-  width: auto;
 }
 
 .header-text {
@@ -54,7 +50,7 @@ header {
 
 /* LAYOUT */
 .container {
-  max-width: 1100px;
+  max-width: 95vw;
   margin: auto;
   padding: 25px 20px;
 }
@@ -62,34 +58,31 @@ header {
 /* YEAR SELECTOR */
 .year-selector {
   display: flex;
-  align-items: center;
   gap: 10px;
-  margin-bottom: 25px;
+  margin: 10px 0 18px;
   flex-wrap: wrap;
 }
 
-.year-selector button {
-  padding: 8px 16px;
+.year-btn {
+  padding: 8px 18px;
   border-radius: 20px;
   border: none;
   background: #EDE7EA;
   color: #9B2C6B;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
+  transition: all 0.25s ease;
 }
 
-.year-selector button:hover {
+.year-btn:hover {
   background: #E0D4DA;
 }
 
-.year-selector select {
-  padding: 8px 16px;
-  border-radius: 20px;
-  border: none;
-  background: #F4B266;
-  color: #4A2A14;
-  font-weight: 600;
-  cursor: pointer;
+/* ACTIVE YEAR */
+.year-btn.active {
+  background: #9B2C6B;
+  color: #FFFFFF;
+  box-shadow: 0 4px 10px rgba(155,44,107,0.35);
 }
 
 /* CARDS */
@@ -99,6 +92,7 @@ header {
   padding: 18px;
   margin-bottom: 25px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  overflow-x: auto;
 }
 
 .card h2 {
@@ -107,8 +101,12 @@ header {
 }
 
 /* IFRAME */
-iframe {
+.sheet-frame {
+  display: block;
+  margin: 0 auto;
   width: 100%;
+  min-width: 1400px;
+  max-width: 1600px;
   height: 750px;
   border: none;
   border-radius: 10px;
@@ -126,20 +124,9 @@ iframe {
 
 /* MOBILE */
 @media (max-width: 600px) {
-  .logo {
-    height: 52px;
-  }
-
-  iframe {
-    height: 600px;
-  }
+  .logo { height: 52px; }
+  .sheet-frame { height: 600px; }
 }
-
-.year-selector {
-  margin: 10px 0 18px;
-}
-
-
 </style>
 </head>
 
@@ -150,42 +137,25 @@ iframe {
     <img src="./images/Sumanjali_logo.PNG" alt="Sumanjali Logo" class="logo" />
     <div class="header-text">
       <h1>Gruhashilpi’s Sumanjali</h1>
-      <p>A Transparent view of our Home, Finances & Future</p>
+      <p>A transparent view of our home, finances & future</p>
     </div>
   </div>
 </header>
-
 
 <div class="container">
 
   <!-- MAINTENANCE -->
   <div class="card">
-  <h2>📊 Maintenance Overview</h2>
+    <h2>📊 Maintenance Overview</h2>
 
-  <div class="year-selector">
-    <button onclick="loadPDF('2024')">2024</button>
-    <button onclick="loadPDF('2025')">2025</button>
+    <div class="year-selector">
+      <button class="year-btn" data-year="2024" onclick="loadYear('2024')">2024</button>
+      <button class="year-btn" data-year="2025" onclick="loadYear('2025')">2025</button>
+      <button class="year-btn" data-year="2026" onclick="loadYear('2026')">2026</button>
+    </div>
 
-    <select onchange="loadDynamic(this.value)">
-      <option value="">2026</option>
-      <option value="JAN">Jan</option>
-      <option value="FEB">Feb</option>
-      <option value="MAR">Mar</option>
-      <option value="APR">Apr</option>
-      <option value="MAY">May</option>
-      <option value="JUN">Jun</option>
-      <option value="JUL">Jul</option>
-      <option value="AUG">Aug</option>
-      <option value="SEP">Sep</option>
-      <option value="OCT">Oct</option>
-      <option value="NOV">Nov</option>
-      <option value="DEC">Dec</option>
-    </select>
+    <iframe id="sheetFrame" class="sheet-frame"></iframe>
   </div>
-
-  <iframe id="sheetFrame"></iframe>
-</div>
-
 
   <!-- DEVELOPMENT -->
   <div class="card">
@@ -204,38 +174,27 @@ iframe {
 </div>
 
 <script>
-const sheetBase =
-  "https://docs.google.com/spreadsheets/d/1fNOXg3DIRX0JFqCONDBaoB5uK3SbaUxnjVnjiJyu-TI/preview?gid=";
-
-
-const sheetGids = {
-  JAN: "703860193",
-  FEB: "1324103623",
-  MAR: "941278154",
-  APR: "300290463",
-  MAY: "94897623",
-  JUN: "1449919187",
-  JUL: "833222915",
-  AUG: "960956395",
-  SEP: "194648854",
-  OCT: "1836439055",
-  NOV: "89014450",
-  DEC: "834650500"
+const yearSheets = {
+  "2024": "https://docs.google.com/spreadsheets/d/SPREADSHEET_ID_2024/preview",
+  "2025": "https://docs.google.com/spreadsheets/d/SPREADSHEET_ID_2025/preview",
+  "2026": "https://docs.google.com/spreadsheets/d/1fNOXg3DIRX0JFqCONDBaoB5uK3SbaUxnjVnjiJyu-TI/preview"
 };
 
-function loadPDF(year) {
-  document.getElementById("sheetFrame").src =
-    "maintenance_" + year + ".pdf";
+function loadYear(year) {
+  // Load sheet
+  document.getElementById("sheetFrame").src = yearSheets[year];
+
+  // Highlight active button
+  document.querySelectorAll(".year-btn").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.year === year);
+  });
 }
 
-function loadDynamic(month) {
-  if (!month) return;
-  document.getElementById("sheetFrame").src =
-    sheetBase + sheetGids[month];
-}
+// Default load
+window.onload = function () {
+  loadYear("2026");
+};
 </script>
-
 
 </body>
 </html>
-
