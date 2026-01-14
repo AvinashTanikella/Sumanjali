@@ -112,6 +112,10 @@ header {
 
 .notice-arrow.left { left: 5px; }
 .notice-arrow.right { right: 5px; }
+.notice-arrow {
+  z-index: 5;
+}
+
 
 /* ================= TEXT LIST ================= */
 .simple-list li {
@@ -177,9 +181,32 @@ header {
 /* ================= MOBILE ================= */
 @media (max-width: 600px) {
   .logo { height: 50px; }
-  .sheet-frame { height: 520px; }
   .notice-strip img { height: 330px; }
 }
+
+/* ===== Mobile Sheet Optimization (Final Recommended) ===== */
+@media (max-width: 600px) {
+
+  .sheet-scroll {
+    overflow-x: auto;
+  }
+
+  /* Default for all sheets */
+  .sheet-frame {
+    transform: scale(0.8);
+    transform-origin: top left;
+    width: 125%;
+    height: 600px;
+  }
+
+  /* Extra compact for wide sheets */
+  .maintenance-frame,
+  .dues-frame {
+    transform: scale(0.75);
+    width: 135%;
+  }
+}
+
 </style>
 </head>
 
@@ -227,7 +254,7 @@ header {
   <div class="card">
     <h3>🚨 Emergency & Important Contacts</h3>
     <div class="sheet-scroll">
-      <iframe class="sheet-frame" src="https://docs.google.com/spreadsheets/d/1YQp5Y23vlj_yVXnTSbYrjK2Z71Fk74qqlZFm2xzR1R4/preview"></iframe>
+      <iframe class="sheet-frame" src="https://docs.google.com/spreadsheets/d/1YQp5Y23vlj_yVXnTSbYrjK2Z71Fk74qqlZFm2xzR1R4/preview" loading="lazy"></iframe>
     </div>
   </div>
 
@@ -242,12 +269,12 @@ header {
     </div>
 
     <div class="sheet-scroll">
-      <iframe id="maintenanceFrame" class="sheet-frame"></iframe>
+      <iframe id="maintenanceFrame" class="sheet-frame maintenance-frame" loading="lazy"></iframe>
     </div>
 
-    <h4 style="margin-top:20px;">Society EB History</h4>
+    <h4 style="margin-top:20px;">Society Electric Bill History</h4>
     <div class="sheet-scroll">
-      <iframe class="sheet-frame" src="https://docs.google.com/spreadsheets/d/1nk81QK2zRyOu0D24izF41FjbD-YskHCpFCtYb63Nv0c/preview"></iframe>
+      <iframe class="sheet-frame" src="https://docs.google.com/spreadsheets/d/1nk81QK2zRyOu0D24izF41FjbD-YskHCpFCtYb63Nv0c/preview" loading="lazy"></iframe>
     </div>
   </div>
 
@@ -256,7 +283,7 @@ header {
   <div class="card">
     <h3>⚡ Electricity Meter Information</h3>
     <div class="sheet-scroll">
-      <iframe class="sheet-frame" src="https://docs.google.com/spreadsheets/d/1BIID_0FV2vMt7_ygUxwwagRD6T61b94QrpAn1462YL0/preview"></iframe>
+      <iframe class="sheet-frame" src="https://docs.google.com/spreadsheets/d/1BIID_0FV2vMt7_ygUxwwagRD6T61b94QrpAn1462YL0/preview" loading="lazy"></iframe>
     </div>
   </div>
 
@@ -292,7 +319,7 @@ header {
   <h3>💰 DUES (Outstanding / Paid Status)</h3>
   <div class="sheet-scroll">
     <iframe
-      class="sheet-frame"
+      class="sheet-frame dues-frame"
       src="https://docs.google.com/spreadsheets/d/1Ioz7KglsLXIAtMpKMaaL45NYCH1EfMA6PEa1oK9UEmg/preview"
       loading="lazy"
       sandbox="allow-scripts allow-same-origin">
