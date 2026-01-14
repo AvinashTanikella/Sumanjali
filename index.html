@@ -4,8 +4,11 @@
 <meta charset="UTF-8" />
 <title>Gruhashilpi’s Sumanjali</title>
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Gruhashilpi’s Sumanjali – Transparent apartment updates, maintenance, meetings, events, and community memories." />
+
 <style>
-/* BASE */
+/* ================= BASE ================= */
 body {
   margin: 0;
   font-family: "Segoe UI", sans-serif;
@@ -13,7 +16,7 @@ body {
   color: #2C2C2C;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
 header {
   background: linear-gradient(135deg, #9B2C6B, #F4B266);
   color: white;
@@ -28,37 +31,97 @@ header {
   flex-wrap: wrap;
 }
 
-.logo { height: 65px; }
-
-.header-text {
-  text-align: center;
+.logo {
+  height: 60px;
 }
 
 .header-text h1 {
   margin: 0;
   font-weight: 600;
-  letter-spacing: 0.5px;
 }
 
 .header-text p {
-  margin-top: 6px;
+  margin: 6px 0 0;
   font-size: 14px;
   opacity: 0.95;
 }
 
-/* LAYOUT */
+/* ================= LAYOUT ================= */
 .container {
   max-width: 95vw;
   margin: auto;
   padding: 25px 20px;
 }
 
-/* YEAR SELECTOR */
-.year-selector {
+/* ================= SECTION HEADERS ================= */
+.section-title {
+  margin: 40px 0 15px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #9B2C6B;
+  border-bottom: 2px solid #E6D6DF;
+  padding-bottom: 6px;
+}
+
+/* ================= CARD ================= */
+.card {
+  background: white;
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 25px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+/* ================= NOTICE BOARD ================= */
+.notice-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.notice-strip {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.notice-strip::-webkit-scrollbar {
+  display: none;
+}
+
+.notice-strip img {
+  height: 180px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.notice-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.notice-arrow.left { left: 5px; }
+.notice-arrow.right { right: 5px; }
+
+/* ================= TEXT LIST ================= */
+.simple-list li {
+  margin-bottom: 8px;
+}
+
+/* ================= YEAR BUTTONS ================= */
+.year-selector, .event-buttons {
   display: flex;
   gap: 10px;
-  margin: 10px 0 18px;
   flex-wrap: wrap;
+  margin-bottom: 12px;
 }
 
 .year-btn {
@@ -69,60 +132,51 @@ header {
   color: #9B2C6B;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-.year-btn:hover {
-  background: #E0D4DA;
 }
 
 .year-btn.active {
   background: #9B2C6B;
-  color: #FFFFFF;
-  box-shadow: 0 4px 10px rgba(155,44,107,0.35);
+  color: white;
 }
 
-/* CARDS */
-.card {
-  background: white;
-  border-radius: 14px;
-  padding: 18px;
-  margin-bottom: 25px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-}
-
-/* SCROLL WRAPPER — CRITICAL FOR MOBILE */
+/* ================= IFRAME ================= */
 .sheet-scroll {
   width: 100%;
   overflow-x: auto;
-  overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
 }
 
-/* IFRAME */
 .sheet-frame {
-  width: 1600px;          /* fixed width for mobile scroll */
-  max-width: none;        /* IMPORTANT: prevent shrink */
-  height: 750px;
+  width: 1600px;
+  height: 720px;
   border: none;
   border-radius: 10px;
-  display: block;
 }
 
-/* FOOTER */
+/* ================= EVENTS ================= */
+.event-btn {
+  padding: 8px 14px;
+  border-radius: 18px;
+  background: #F3EEE8;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* ================= FOOTER ================= */
 .footer {
   text-align: center;
   font-size: 13px;
   color: #6B6B6B;
   padding: 30px 15px;
-  line-height: 1.7;
   background: #F3EEE8;
 }
 
-/* MOBILE */
+/* ================= MOBILE ================= */
 @media (max-width: 600px) {
-  .logo { height: 52px; }
-  .sheet-frame { height: 550px; }
+  .logo { height: 50px; }
+  .sheet-frame { height: 520px; }
+  .notice-strip img { height: 140px; }
 }
 </style>
 </head>
@@ -131,57 +185,200 @@ header {
 
 <header>
   <div class="header-content">
-    <img src="./images/Sumanjali_logo.PNG" alt="Sumanjali Logo" class="logo" />
+    <img src="./images/Sumanjali_logo.PNG" class="logo" />
     <div class="header-text">
       <h1>Gruhashilpi’s Sumanjali</h1>
-      <p>A transparent view of our home, finances & future</p>
+      <p>A transparent view of our home, governance & memories</p>
     </div>
   </div>
 </header>
 
 <div class="container">
 
-  <!-- MAINTENANCE -->
+  <!-- ================= DAY TO DAY ================= -->
+  <div class="section-title">DAY-TO-DAY (For All Residents)</div>
+
+  <!-- NOTICE BOARD -->
   <div class="card">
-    <h2>📊 Maintenance Overview</h2>
-
-    <div class="year-selector">
-      <button class="year-btn" data-year="2024" onclick="loadYear('2024')">2024</button>
-      <button class="year-btn" data-year="2025" onclick="loadYear('2025')">2025</button>
-      <button class="year-btn" data-year="2026" onclick="loadYear('2026')">2026</button>
-    </div>
-
-    <div class="sheet-scroll">
-      <iframe id="sheetFrame" class="sheet-frame"></iframe>
+    <h3>📣 Notice Board</h3>
+    <div class="notice-wrapper">
+      <button class="notice-arrow left" onclick="scrollNotices(-1)">‹</button>
+      <div class="notice-strip" id="noticeStrip">
+        <img src="./images/notices/garbagenotice.png">
+        <img src="./images/notices/buysell.png">
+        <img src="./images/notices/Duesoverview.png">
+      </div>
+      <button class="notice-arrow right" onclick="scrollNotices(1)">›</button>
     </div>
   </div>
 
-  <!-- DEVELOPMENT -->
+  <!-- UPCOMING EVENTS TEXT -->
   <div class="card">
-    <h2>📌 Development & Activities</h2>
-    <ul>
-      <li><strong>Planned:</strong> Water pipeline improvement</li>
-      <li><strong>Ongoing:</strong> Lift AMC (2026)</li>
-      <li><strong>Completed:</strong> CCTV maintenance</li>
+    <h3>📅 Upcoming Events & Celebrations</h3>
+    <ul class="simple-list">
+      <li>Sankranti 2026 – 14th, 15th, 16th Jan, 2026</li>
+      <li>Holi Celebrations – 4th Mar, 2026</li>
     </ul>
+  </div>
+
+  <!-- EMERGENCY CONTACTS -->
+  <div class="card">
+    <h3>🚨 Emergency & Important Contacts</h3>
+    <div class="sheet-scroll">
+      <iframe class="sheet-frame" src="https://docs.google.com/spreadsheets/d/1YQp5Y23vlj_yVXnTSbYrjK2Z71Fk74qqlZFm2xzR1R4/preview"></iframe>
+    </div>
+  </div>
+
+  <!-- MAINTENANCE OVERVIEW -->
+  <div class="card">
+    <h3>📊 Maintenance Overview</h3>
+
+    <div class="year-selector">
+      <button class="year-btn" data-year="2024" onclick="loadMaintenanceYear('2024')">2024</button>
+      <button class="year-btn" data-year="2025" onclick="loadMaintenanceYear('2025')">2025</button>
+      <button class="year-btn" data-year="2026" onclick="loadMaintenanceYear('2026')">2026</button>
+    </div>
+
+    <div class="sheet-scroll">
+      <iframe id="maintenanceFrame" class="sheet-frame"></iframe>
+    </div>
+
+    <h4 style="margin-top:20px;">Society EB History</h4>
+    <div class="sheet-scroll">
+      <iframe class="sheet-frame" src="https://docs.google.com/spreadsheets/d/1nk81QK2zRyOu0D24izF41FjbD-YskHCpFCtYb63Nv0c/preview"></iframe>
+    </div>
+  </div>
+
+
+  <!-- ELECTRICITY METERS -->
+  <div class="card">
+    <h3>⚡ Electricity Meter Information</h3>
+    <div class="sheet-scroll">
+      <iframe class="sheet-frame" src="https://docs.google.com/spreadsheets/d/1BIID_0FV2vMt7_ygUxwwagRD6T61b94QrpAn1462YL0/preview"></iframe>
+    </div>
+  </div>
+
+  <!-- NEXT ACTIVITIES -->
+  <div class="card">
+    <h3>📋 Upcoming Immediate Activities:</h3>
+    <ul class="simple-list">
+      <li>Lift AMC renewal for Q1 2026 - Done</li>
+      <li>Apartment complete cleaning - Done </li>
+      <li>Water Leakages - Identification and Rectification - In-Progress</li>
+      <li>Solar Fencing Testing and Fixing issues - In-Progress</li>
+      <li>Fixing of Bulbs at necessary places - In-Progress</li>
+    </ul>
+  </div>
+
+<!-- ================= OWNERS ================= -->
+<div class="section-title">OWNERS (Governance & Planning) - SOWA</div>
+
+<!-- MEETINGS & DEVELOPMENT -->
+<div class="card">
+  <h3>📝 Meetings, MoM & Development Activities</h3>
+  <div class="sheet-scroll">
+    <iframe
+      class="sheet-frame"
+      src="https://docs.google.com/spreadsheets/d/1jE6sQghnz7gMH0NTl9rpgheh9eu5kDOUQnBMrEHO1Gs/preview"
+      loading="lazy">
+    </iframe>
+  </div>
+</div>
+
+<!-- DUES -->
+<div class="card">
+  <h3>💰 DUES (Outstanding / Paid Status)</h3>
+  <div class="sheet-scroll">
+    <iframe
+      class="sheet-frame"
+      src="https://docs.google.com/spreadsheets/d/1Ioz7KglsLXIAtMpKMaaL45NYCH1EfMA6PEa1oK9UEmg/preview"
+      loading="lazy"
+      sandbox="allow-scripts allow-same-origin">
+    </iframe>
+  </div>
+</div>
+
+
+  
+  <!-- ================= MEDIA ================= -->
+  <div class="section-title">MEDIA (Community Memories)</div>
+
+  <div class="card">
+    <h3>🎥 Event Photos & Videos</h3>
+
+    <h4>2024</h4>
+    <div class="event-buttons">
+      <button class="event-btn" onclick="openLink('PHOTOS_HOLI_2024')">Holi</button>
+      <button class="event-btn" onclick="openLink('PHOTOS_UGADI_2024')">Ugadi</button>
+    </div>
+
+    <h4>YouTube</h4>
+    <button class="event-btn" onclick="openLink('https://www.youtube.com/@gruhashilpiSOWA')">Visit Channel</button>
+
+    <div style="margin-top:15px;">
+      <iframe width="100%" height="315" src="https://www.youtube.com/embed/VuTEYNEKTrc"
+        frameborder="0" allowfullscreen></iframe>
+    </div>
   </div>
 
 </div>
 
 <div class="footer">
-  © Gruhashilpi’s Sumanjali Apartment Association
+  © <span id="year"></span> Gruhashilpi’s Sumanjali Apartment Association
 </div>
 
 <script>
-const yearSheets = {
-  /*  "2024": "https://docs.google.com/spreadsheets/d/SPREADSHEET_ID_2024/preview",   */
+document.getElementById("year").textContent = new Date().getFullYear();
+
+const strip = document.getElementById("noticeStrip");
+
+let autoScrollInterval;
+let autoScrollPaused = false;
+let resumeTimeout;
+
+/* Manual scroll with pause */
+function scrollNotices(dir) {
+  strip.scrollBy({ left: dir * 250, behavior: "smooth" });
+  pauseAutoScroll();
+}
+
+/* Start auto-scroll */
+function startAutoScroll() {
+  autoScrollInterval = setInterval(() => {
+    if (!autoScrollPaused) {
+      strip.scrollBy({ left: 250, behavior: "smooth" });
+    }
+  }, 4000);
+}
+
+/* Pause auto-scroll for 15 seconds */
+function pauseAutoScroll() {
+  autoScrollPaused = true;
+  clearTimeout(resumeTimeout);
+
+  resumeTimeout = setTimeout(() => {
+    autoScrollPaused = false;
+  }, 15000);
+}
+
+/* Initialize */
+startAutoScroll();
+
+function openLink(url) {
+  window.open(url, "_blank");
+}
+</script>
+
+<script>
+const maintenanceSheets = {
   "2024": "https://docs.google.com/spreadsheets/d/1vKoWtlHJPTgEd2iqZ2G914D1zYF9U_iyvk9ikBuY9ys/preview",
   "2025": "https://docs.google.com/spreadsheets/d/1XAEO51tKxzchHjrQYtIyu29kPu5PNVD4PjNVF5K2uJo/preview",
   "2026": "https://docs.google.com/spreadsheets/d/1fNOXg3DIRX0JFqCONDBaoB5uK3SbaUxnjVnjiJyu-TI/preview"
+  /*"2027": "MAINTENANCE_2026_SHEET_URL/preview"*/
 };
 
-function loadYear(year) {
-  document.getElementById("sheetFrame").src = yearSheets[year];
+function loadMaintenanceYear(year) {
+  document.getElementById("maintenanceFrame").src = maintenanceSheets[year];
 
   document.querySelectorAll(".year-btn").forEach(btn => {
     btn.classList.toggle("active", btn.dataset.year === year);
@@ -189,11 +386,11 @@ function loadYear(year) {
 }
 
 /* Default load */
-window.onload = function () {
-  loadYear("2026");
-};
+window.addEventListener("load", () => {
+  loadMaintenanceYear("2026");
+});
 </script>
+
 
 </body>
 </html>
-
