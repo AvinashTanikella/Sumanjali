@@ -330,25 +330,53 @@ header {
 </div>
 
 <script>
+/* Footer year */
 document.getElementById("year").textContent = new Date().getFullYear();
 
+/* Notice Board Logic */
 const strip = document.getElementById("noticeStrip");
+const notices = strip.querySelectorAll("img");
+const totalNotices = notices.length;
 
-let autoScrollInterval;
+let currentIndex = 0;
 let autoScrollPaused = false;
 let resumeTimeout;
 
-/* Manual scroll with pause */
-function scrollNotices(dir) {
-  strip.scrollBy({ left: dir * strip.clientWidth, behavior: "smooth" });
-  pauseAutoScroll();
+/* Scroll to current index */
+function updateNotice(smooth = true) {
+  strip.scrollTo({
+    left: currentIndex * strip.clientWidth,
+    behavior: smooth ? "smooth" : "auto"
+  });
 }
 
-/* Start auto-scroll */
+/* Manual navigation */
+function scrollNotices(direction) {
+  pauseAutoScroll();
+
+  currentIndex += direction;
+
+  if (currentIndex >= totalNotices) {
+    currentIndex = 0;
+  }
+  if (currentIndex < 0) {
+    currentIndex = totalNotices - 1;
+  }
+
+  updateNotice();
+}
+
+/* Auto scroll */
 function startAutoScroll() {
-  autoScrollInterval = setInterval(() => {
+  setInterval(() => {
     if (!autoScrollPaused) {
-      strip.scrollBy({ left: strip.clientWidth, behavior: "smooth" });
+      currentIndex++;
+
+      if (currentIndex >= totalNotices) {
+        currentIndex = 0;
+      }
+
+      updateNotice();
     }
   }, 4000);
 }
@@ -364,12 +392,16 @@ function pauseAutoScroll() {
 }
 
 /* Initialize */
+updateNotice(false);
 startAutoScroll();
 
+/* External links */
 function openLink(url) {
   window.open(url, "_blank");
 }
 </script>
+
+
 
 <script>
 const maintenanceSheets = {
